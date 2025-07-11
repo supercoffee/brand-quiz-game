@@ -27,15 +27,33 @@ const gameState = {
 }
 
 function advanceQuestion () {
-    // todo
+    gameState.currentGuess = null;
+    gameState.currentQuestion = questions.pop();
+
+    btnNext.style.display = 'none';
+    txtResult.style.display = 'none';
+    txtProductName.innerText = gameState.currentQuestion.name;
 }
 
 function revealAnswer() {
-    // todo
+
+    if (gameState.currentGuess === gameState.currentQuestion.type) {
+        txtResult.innerText = 'Correct!';
+        gameState.score++;
+    } else {
+        txtResult.innerText = 'Wrong!';
+        // todo: add more creative messages
+    }
+    txtResult.style.display = 'block';
+    btnNext.style.display = 'inline-block';
+    txtScore.innerText = gameState.score;
 }
 
 function registerGuess(guess) {
-    // todo
+
+    gameState.currentGuess = guess;
+
+    revealAnswer();
 }
 
 function setupGame() {
