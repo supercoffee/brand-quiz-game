@@ -29,14 +29,14 @@ const gameState = {
 function advanceQuestion () {
     gameState.currentGuess = null;
     gameState.currentQuestion = questions.pop();
-
     btnNext.style.display = 'none';
     txtResult.style.display = 'none';
+    btnAmzn.style.display = 'inline-block';
+    btnDoc.style.display = 'inline-block';
     txtProductName.innerText = gameState.currentQuestion.name;
 }
 
 function revealAnswer() {
-
     if (gameState.currentGuess === gameState.currentQuestion.type) {
         txtResult.innerText = 'Correct!';
         gameState.score++;
@@ -47,12 +47,12 @@ function revealAnswer() {
     txtResult.style.display = 'block';
     btnNext.style.display = 'inline-block';
     txtScore.innerText = gameState.score;
+    btnAmzn.style.display = 'none';
+    btnDoc.style.display = 'none';
 }
 
 function registerGuess(guess) {
-
     gameState.currentGuess = guess;
-
     revealAnswer();
 }
 
@@ -69,11 +69,9 @@ function setupGame() {
 
     gameState.currentQuestion = questions.pop();
     txtProductName.innerText = gameState.currentQuestion.name;
-
     txtScore.innerText = gameState.score;
     txtResult.style.display = 'none';
     btnNext.style.display = 'none';
-
 }
 
 setupGame();
