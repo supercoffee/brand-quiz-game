@@ -21,13 +21,34 @@ const questions = [
     {name: 'Ellasay', type: 'amzn'},
     {name: 'miradexic', type: 'amzn'},
     {name: 'fyndrax', type: 'amzn'},
+    {name: 'austedo', type: 'drug'},
 ];
+
+const amznSnark = [
+    "I'd give this zero stars if I could because it burned my house down.",
+    "Save 14% on Prime Day.",
+    "Rated 4.9 stars by 4500 fake reviewers."
+];
+
+const drugSnark = [
+    "Side effects include excess earwax production and uncontrollable flatulence",
+    "Do not take this if you've recently been exposed to dog hair",
+    "Clinical trials were rubber stamped by an overworked FDA official."
+]
 
 const gameState = {
     score: 0,
     currentQuestion: null,
     usedQuestions: new Set(),
     currentGuess: null,
+}
+
+function randomArrayIndex(arr) {
+    return Math.floor(Math.random() * (arr.length))
+}
+
+function randomArrayItem(arr) {
+    return arr[randomArrayIndex(arr)];
 }
 
 function advanceQuestion () {
@@ -51,8 +72,11 @@ function revealAnswer() {
         txtResult.innerText = 'Correct!';
         gameState.score++;
     } else {
-        txtResult.innerText = 'Wrong!';
-        // todo: add more creative messages
+        if (gameState.currentQuestion.type === 'amzn') {
+            txtResult.innerText = randomArrayItem(amznSnark)
+        } else {
+            txtResult.innerText = randomArrayItem(drugSnark)
+        }
     }
     txtResult.style.display = 'block';
     btnNext.style.display = 'inline-block';
