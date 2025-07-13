@@ -4,6 +4,7 @@ const btnAmzn = document.getElementById('btnAmzn');
 const btnDoc = document.getElementById('btnDoc');
 const btnNext = document.getElementById('btnNext');
 const txtScore = document.getElementById('txtScore');
+const txtTotal = document.getElementById('txtTotal');
 
 const questions = [
     {name: 'Xdemvy', type: 'drug'},
@@ -47,12 +48,14 @@ function revealAnswer() {
     txtResult.style.display = 'block';
     btnNext.style.display = 'inline-block';
     txtScore.innerText = gameState.score;
+    txtTotal.innerText = ''+ gameState.usedQuestions.size;
     btnAmzn.style.display = 'none';
     btnDoc.style.display = 'none';
 }
 
 function registerGuess(guess) {
     gameState.currentGuess = guess;
+    gameState.usedQuestions.add(gameState.currentQuestion);
     revealAnswer();
 }
 
@@ -69,6 +72,7 @@ function setupGame() {
 
     gameState.currentQuestion = questions.pop();
     txtProductName.innerText = gameState.currentQuestion.name;
+    txtTotal.innerText = ''+ gameState.usedQuestions.size;
     txtScore.innerText = gameState.score;
     txtResult.style.display = 'none';
     btnNext.style.display = 'none';
