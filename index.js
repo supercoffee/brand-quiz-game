@@ -31,13 +31,19 @@ const gameState = {
 }
 
 function advanceQuestion () {
-    gameState.currentGuess = null;
-    gameState.currentQuestion = questions.pop();
-    btnNext.style.display = 'none';
+
+    if (questions.length > 0) {
+        gameState.currentGuess = null;
+        gameState.currentQuestion = questions.pop();
+        btnAmzn.style.display = 'inline-block';
+        btnDoc.style.display = 'inline-block';
+        txtProductName.innerText = gameState.currentQuestion.name;
+    } else {
+        txtProductName.innerText = 'Game over!';
+    }
     txtResult.style.display = 'none';
-    btnAmzn.style.display = 'inline-block';
-    btnDoc.style.display = 'inline-block';
-    txtProductName.innerText = gameState.currentQuestion.name;
+    btnNext.style.display = 'none';
+
 }
 
 function revealAnswer() {
