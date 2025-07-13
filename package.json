@@ -1,0 +1,17 @@
+{
+  "name": "amzn-junk-or-drug",
+  "version": "1.0.0",
+  "description": "[Play the game](https://supercoffee.github.io/brand-quiz-game/)",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve -l 8123"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.13",
+    "serve": "^14.2.4"
+  }
+}

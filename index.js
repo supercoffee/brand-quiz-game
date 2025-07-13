@@ -22,18 +22,23 @@ const questions = [
     {name: 'miradexic', type: 'amzn'},
     {name: 'fyndrax', type: 'amzn'},
     {name: 'austedo', type: 'drug'},
+    {name: 'fasenra', type: 'drug'},
+    {name: 'aozita', type: 'amzn'},
+    {name: 'dalzom', type: 'amzn'},
 ];
 
 const amznSnark = [
     "I'd give this zero stars if I could because it burned my house down.",
     "Save 14% on Prime Day.",
-    "Rated 4.9 stars by 4500 fake reviewers."
+    "Rated 4.9 stars by 4500 fake reviewers.",
+    "Subscribe and save so you'll have a new one by the time the last one you ordered inevitably breaks."
 ];
 
 const drugSnark = [
-    "Side effects include excess earwax production and uncontrollable flatulence",
-    "Do not take this if you've recently been exposed to dog hair",
-    "Clinical trials were rubber stamped by an overworked FDA official."
+    "Side effects include excess earwax production and uncontrollable flatulence.",
+    "Do not take this if you've recently been exposed to dog hair.",
+    "Clinical trials were rubber stamped by an overworked FDA official.",
+    "Off label uses include poisoning rodents and increasing libido of captive pandas."
 ]
 
 const gameState = {
